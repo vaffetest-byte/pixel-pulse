@@ -70,10 +70,10 @@ export const PricingSection = () => {
           <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-4 block">
             Pricing
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground-light mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight">
             Investment in growth
           </h2>
-          <p className="text-lg text-muted-light-foreground">
+          <p className="text-lg text-muted-foreground">
             Transparent pricing for premium results. No hidden fees, no surprises.
           </p>
         </motion.div>
@@ -88,7 +88,7 @@ export const PricingSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className={`relative rounded-2xl p-8 ${
                 plan.popular
-                  ? "bg-foreground-light text-background-light scale-105 shadow-xl"
+                  ? "bg-primary text-primary-foreground scale-105 shadow-xl"
                   : "card-light"
               }`}
             >
@@ -100,19 +100,19 @@ export const PricingSection = () => {
               )}
 
               <div className="mb-6">
-                <h3 className={`text-xl font-bold mb-2 ${plan.popular ? "text-background-light" : "text-foreground-light"}`}>
+                <h3 className={`text-xl font-bold mb-2 ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
                   {plan.name}
                 </h3>
-                <p className={`text-sm ${plan.popular ? "text-background-light/70" : "text-muted-light-foreground"}`}>
+                <p className={`text-sm ${plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
                   {plan.description}
                 </p>
               </div>
 
               <div className="mb-8">
-                <span className={`text-4xl font-bold ${plan.popular ? "text-background-light" : "text-foreground-light"}`}>
+                <span className={`text-4xl font-bold ${plan.popular ? "text-primary-foreground" : "text-foreground"}`}>
                   {plan.price}
                 </span>
-                <span className={`text-sm ${plan.popular ? "text-background-light/70" : "text-muted-light-foreground"}`}>
+                <span className={`text-sm ${plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
                   {" "}/ project
                 </span>
               </div>
@@ -120,8 +120,8 @@ export const PricingSection = () => {
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
-                    <Check className={`w-5 h-5 flex-shrink-0 ${plan.popular ? "text-primary" : "text-primary"}`} />
-                    <span className={`text-sm ${plan.popular ? "text-background-light/90" : "text-muted-light-foreground"}`}>
+                    <Check className={`w-5 h-5 flex-shrink-0 ${plan.popular ? "text-primary-foreground" : "text-primary"}`} />
+                    <span className={`text-sm ${plan.popular ? "text-primary-foreground/90" : "text-muted-foreground"}`}>
                       {feature}
                     </span>
                   </li>
@@ -129,7 +129,7 @@ export const PricingSection = () => {
               </ul>
 
               <Button
-                variant={plan.popular ? "glow" : "lightOutline"}
+                variant={plan.popular ? "secondary" : "outline"}
                 size="lg"
                 className="w-full"
               >

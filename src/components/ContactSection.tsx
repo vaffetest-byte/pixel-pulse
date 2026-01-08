@@ -39,11 +39,11 @@ export const ContactSection = () => {
             <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-4 block">
               Contact
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground-light mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight">
               Let's build something{" "}
               <span className="text-gradient">exceptional</span>
             </h2>
-            <p className="text-lg text-muted-light-foreground mb-10">
+            <p className="text-lg text-muted-foreground mb-10">
               Fill out the form and we'll get back to you within 24 hours with 
               a custom proposal tailored to your goals.
             </p>
@@ -54,8 +54,8 @@ export const ContactSection = () => {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground-light">Email</p>
-                  <p className="text-muted-light-foreground">hello@apexstudio.com</p>
+                  <p className="font-semibold text-foreground">Email</p>
+                  <p className="text-muted-foreground">hello@apexstudio.com</p>
                 </div>
               </div>
               
@@ -64,8 +64,8 @@ export const ContactSection = () => {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground-light">Location</p>
-                  <p className="text-muted-light-foreground">Remote - Worldwide</p>
+                  <p className="font-semibold text-foreground">Location</p>
+                  <p className="text-muted-foreground">Remote - Worldwide</p>
                 </div>
               </div>
               
@@ -74,8 +74,8 @@ export const ContactSection = () => {
                   <Clock className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground-light">Response Time</p>
-                  <p className="text-muted-light-foreground">Within 24 hours</p>
+                  <p className="font-semibold text-foreground">Response Time</p>
+                  <p className="text-muted-foreground">Within 24 hours</p>
                 </div>
               </div>
             </div>
@@ -90,28 +90,28 @@ export const ContactSection = () => {
             <form className="card-light rounded-2xl p-8 lg:p-10 space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground-light mb-2">
+                  <label className="block text-sm font-medium text-foreground mb-2">
                     Name
                   </label>
                   <Input
                     placeholder="John Doe"
-                    className="bg-background-light border-border-light text-foreground-light placeholder:text-muted-light-foreground/50 h-12"
+                    className="bg-secondary border-border text-foreground placeholder:text-muted-foreground/50 h-12"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground-light mb-2">
+                  <label className="block text-sm font-medium text-foreground mb-2">
                     Email
                   </label>
                   <Input
                     type="email"
                     placeholder="john@company.com"
-                    className="bg-background-light border-border-light text-foreground-light placeholder:text-muted-light-foreground/50 h-12"
+                    className="bg-secondary border-border text-foreground placeholder:text-muted-foreground/50 h-12"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground-light mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Project Type
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -123,7 +123,7 @@ export const ContactSection = () => {
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                         selectedProject === type
                           ? "bg-primary text-primary-foreground"
-                          : "bg-muted-light text-muted-light-foreground hover:bg-primary/10"
+                          : "bg-muted text-muted-foreground hover:bg-primary/10"
                       }`}
                     >
                       {type}
@@ -133,7 +133,7 @@ export const ContactSection = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground-light mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Budget Range
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -145,7 +145,7 @@ export const ContactSection = () => {
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                         selectedBudget === range
                           ? "bg-primary text-primary-foreground"
-                          : "bg-muted-light text-muted-light-foreground hover:bg-primary/10"
+                          : "bg-muted text-muted-foreground hover:bg-primary/10"
                       }`}
                     >
                       {range}
@@ -159,7 +159,7 @@ export const ContactSection = () => {
                 <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Button>
 
-              <p className="text-xs text-center text-muted-light-foreground">
+              <p className="text-xs text-center text-muted-foreground">
                 By submitting, you agree to our privacy policy. We'll never share your data.
               </p>
             </form>
