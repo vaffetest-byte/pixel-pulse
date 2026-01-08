@@ -47,10 +47,10 @@ export const TrustSection = () => {
           <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-4 block">
             Why us
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground-light mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight">
             Built for speed, conversion & scale
           </h2>
-          <p className="text-lg text-muted-light-foreground">
+          <p className="text-lg text-muted-foreground">
             Every pixel, every interaction, every line of code is optimized 
             for one thing: growing your business.
           </p>
@@ -69,13 +69,13 @@ export const TrustSection = () => {
               <div className="w-14 h-14 mx-auto mb-6 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <stat.icon className="w-7 h-7 text-primary" />
               </div>
-              <div className="text-4xl font-bold text-foreground-light mb-2">
+              <div className="text-4xl font-bold text-foreground mb-2">
                 {stat.value}
               </div>
-              <div className="font-semibold text-foreground-light mb-1">
+              <div className="font-semibold text-foreground mb-1">
                 {stat.label}
               </div>
-              <p className="text-sm text-muted-light-foreground">
+              <p className="text-sm text-muted-foreground">
                 {stat.description}
               </p>
             </motion.div>

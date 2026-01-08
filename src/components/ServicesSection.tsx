@@ -48,10 +48,10 @@ export const ServicesSection = () => {
           <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-4 block">
             Services
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground-light mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight">
             What we build
           </h2>
-          <p className="text-lg text-muted-light-foreground">
+          <p className="text-lg text-muted-foreground">
             Premium digital products crafted with precision and purpose.
           </p>
         </motion.div>
@@ -74,15 +74,15 @@ export const ServicesSection = () => {
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
                 
-                <h3 className="text-xl lg:text-2xl font-bold text-foreground-light mb-4">
+                <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-4">
                   {service.title}
                 </h3>
                 
-                <p className="text-muted-light-foreground mb-8 leading-relaxed">
+                <p className="text-muted-foreground mb-8 leading-relaxed">
                   {service.description}
                 </p>
                 
-                <Button variant="lightOutline" className="group/btn">
+                <Button variant="outline" className="group/btn">
                   Start this project
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                 </Button>

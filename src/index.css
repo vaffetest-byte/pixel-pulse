@@ -107,9 +107,8 @@
   }
 
   .section-light {
-    @apply text-foreground-light;
-    background: var(--gradient-light);
-    --foreground: var(--foreground-light);
+    @apply bg-background text-foreground;
+    background: var(--gradient-dark);
   }
 
   /* Card variants */
@@ -119,10 +118,8 @@
   }
 
   .card-light {
-    background: hsl(var(--card-light));
-    color: hsl(var(--card-light-foreground));
-    border-color: hsl(var(--border-light));
-    box-shadow: var(--shadow-light-md);
+    @apply bg-card border-border;
+    box-shadow: var(--shadow-md);
   }
 
   /* Button glow effect */
