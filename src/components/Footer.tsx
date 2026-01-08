@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { ParticleNetwork } from "./animations/ParticleNetwork";
 
 const footerLinks = {
   services: [
@@ -21,8 +21,11 @@ const footerLinks = {
 
 export const Footer = () => {
   return (
-    <footer className="section-dark py-16 border-t border-border/30">
-      <div className="container mx-auto px-6">
+    <footer className="section-dark py-16 border-t border-border/30 relative overflow-hidden">
+      {/* Particle Network Background */}
+      <ParticleNetwork />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
