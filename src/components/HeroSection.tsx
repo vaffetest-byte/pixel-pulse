@@ -1,7 +1,79 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-import heroVisual from "@/assets/hero-visual.png";
+
+const FloatingShape = ({ 
+  className, 
+  delay = 0, 
+  duration = 4,
+  size = 80,
+  gradient = "from-primary to-cyan-400"
+}: { 
+  className?: string; 
+  delay?: number; 
+  duration?: number;
+  size?: number;
+  gradient?: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ 
+      opacity: 1, 
+      scale: 1,
+      y: [0, -20, 0],
+      rotate: [0, 180, 360]
+    }}
+    transition={{ 
+      opacity: { duration: 0.5, delay },
+      scale: { duration: 0.5, delay },
+      y: { duration: duration, repeat: Infinity, ease: "easeInOut", delay },
+      rotate: { duration: duration * 3, repeat: Infinity, ease: "linear", delay }
+    }}
+    className={className}
+    style={{ width: size, height: size }}
+  >
+    <div 
+      className={`w-full h-full bg-gradient-to-br ${gradient} rounded-lg opacity-80`}
+      style={{ 
+        boxShadow: `0 0 40px hsl(var(--primary) / 0.4), inset 0 0 20px rgba(255,255,255,0.1)`,
+        border: '1px solid hsl(var(--primary) / 0.3)'
+      }}
+    />
+  </motion.div>
+);
+
+const GlowingRing = ({ 
+  size = 200, 
+  delay = 0,
+  className 
+}: { 
+  size?: number; 
+  delay?: number;
+  className?: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ 
+      opacity: [0.3, 0.6, 0.3],
+      scale: 1,
+      rotate: 360
+    }}
+    transition={{ 
+      opacity: { duration: 3, repeat: Infinity, delay },
+      scale: { duration: 0.8, delay },
+      rotate: { duration: 20, repeat: Infinity, ease: "linear" }
+    }}
+    className={className}
+    style={{ width: size, height: size }}
+  >
+    <div 
+      className="w-full h-full rounded-full border-2 border-primary/50"
+      style={{ 
+        boxShadow: `0 0 30px hsl(var(--primary) / 0.3), inset 0 0 30px hsl(var(--primary) / 0.1)`
+      }}
+    />
+  </motion.div>
+);
 
 export const HeroSection = () => {
   return (
@@ -91,22 +163,106 @@ export const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right Visual */}
+          {/* Right Visual - Animated Geometric Shapes */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, x: 50 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative hidden lg:block"
+            className="relative hidden lg:flex items-center justify-center h-[500px]"
           >
-            <div className="relative animate-float">
-              <img
-                src={heroVisual}
-                alt="Premium digital products"
-                className="w-full h-auto rounded-2xl"
+            {/* Central diamond */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1,
+                rotate: [0, 360]
+              }}
+              transition={{ 
+                opacity: { duration: 0.6, delay: 0.5 },
+                scale: { duration: 0.6, delay: 0.5 },
+                rotate: { duration: 30, repeat: Infinity, ease: "linear" }
+              }}
+              className="absolute"
+            >
+              <div 
+                className="w-32 h-32 bg-gradient-to-br from-primary via-cyan-400 to-blue-500 rotate-45"
+                style={{ 
+                  boxShadow: `0 0 80px hsl(var(--primary) / 0.5), 0 0 120px hsl(var(--primary) / 0.3)`,
+                  border: '2px solid hsl(var(--primary) / 0.5)'
+                }}
               />
-              {/* Glow overlay */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-            </div>
+            </motion.div>
+
+            {/* Glowing rings */}
+            <GlowingRing size={280} delay={0.3} className="absolute" />
+            <GlowingRing size={380} delay={0.5} className="absolute" />
+
+            {/* Floating shapes */}
+            <FloatingShape 
+              className="absolute -top-4 left-12" 
+              delay={0.6} 
+              size={60}
+              gradient="from-cyan-400 to-teal-500"
+            />
+            <FloatingShape 
+              className="absolute top-20 -right-4" 
+              delay={0.8} 
+              size={50}
+              duration={5}
+              gradient="from-violet-500 to-purple-600"
+            />
+            <FloatingShape 
+              className="absolute bottom-20 left-0" 
+              delay={1} 
+              size={40}
+              duration={4.5}
+              gradient="from-blue-500 to-indigo-600"
+            />
+            <FloatingShape 
+              className="absolute bottom-8 right-20" 
+              delay={1.2} 
+              size={55}
+              duration={5.5}
+              gradient="from-emerald-400 to-cyan-500"
+            />
+            <FloatingShape 
+              className="absolute top-8 right-32" 
+              delay={0.7} 
+              size={35}
+              duration={4}
+              gradient="from-primary to-blue-400"
+            />
+
+            {/* Small orbiting particles */}
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={{ 
+                  opacity: [0.3, 0.8, 0.3],
+                  rotate: 360
+                }}
+                transition={{ 
+                  opacity: { duration: 2, repeat: Infinity, delay: i * 0.3 },
+                  rotate: { duration: 10 + i * 2, repeat: Infinity, ease: "linear" }
+                }}
+                className="absolute"
+                style={{ 
+                  width: 200 + i * 30, 
+                  height: 200 + i * 30 
+                }}
+              >
+                <motion.div
+                  className="absolute w-3 h-3 rounded-full bg-primary"
+                  style={{ 
+                    top: 0, 
+                    left: '50%',
+                    boxShadow: '0 0 15px hsl(var(--primary))'
+                  }}
+                />
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>
