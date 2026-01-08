@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Globe, Sparkles, Code2, Palette, ArrowUpRight } from "lucide-react";
+import { GlowingCodeEditor } from "./animations/GlowingCodeEditor";
 
 const services = [
   {
@@ -56,39 +57,54 @@ export const ServicesSection = () => {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative card-light rounded-2xl p-8 lg:p-10 overflow-hidden hover:scale-[1.02] transition-all duration-300"
-            >
-              {/* Gradient background on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-              
-              <div className="relative z-10">
-                <div className={`w-14 h-14 mb-6 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center`}>
-                  <service.icon className="w-7 h-7 text-white" />
+        {/* Two column layout: Services + Code Editor */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Services Grid */}
+          <div className="grid gap-6">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative card-light rounded-2xl p-6 lg:p-8 overflow-hidden hover:scale-[1.02] transition-all duration-300"
+              >
+                {/* Gradient background on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                
+                <div className="relative z-10 flex gap-4">
+                  <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center`}>
+                    <service.icon className="w-6 h-6 text-white" />
+                  </div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-lg lg:text-xl font-bold text-foreground mb-2">
+                      {service.title}
+                    </h3>
+                    
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      {service.description}
+                    </p>
+                    
+                    <Button variant="outline" size="sm" className="group/btn">
+                      Start this project
+                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </Button>
+                  </div>
                 </div>
-                
-                <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-4">
-                  {service.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-8 leading-relaxed">
-                  {service.description}
-                </p>
-                
-                <Button variant="outline" className="group/btn">
-                  Start this project
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                </Button>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Glowing Code Editor */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="hidden lg:flex items-center justify-center sticky top-32"
+          >
+            <GlowingCodeEditor />
+          </motion.div>
         </div>
       </div>
     </section>
